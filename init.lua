@@ -47,7 +47,7 @@ local set = vim.opt -- set options
 set.tabstop = 4
 set.softtabstop = 4
 set.shiftwidth = 4
-
+set.cmdheight = 0
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -116,7 +116,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -160,10 +160,10 @@ require('lazy').setup({
     'AstroNvim/astrotheme',
     priority = 1000,
     config = function()
-      require("astrotheme").setup{
-        palette= "astrodark",
+      require("astrotheme").setup {
+        palette = "astrodark",
       }
-      vim.cmd.colorscheme 'astrodark'
+      vim.cmd.colorscheme 'astrotheme'
     end,
   },
 
@@ -173,8 +173,8 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
-        theme = 'astrodark',
+        icons_enabled = true,
+        theme = 'auto',
         component_separators = '|',
         section_separators = '',
       },
@@ -283,7 +283,7 @@ vim.o.termguicolors = true
 
 -- MINE
 
-vim.keymap.set('n', '<C-s>', ":Format<CR>:w<CR>", {  })
+vim.keymap.set('n', '<C-s>', ":Format<CR>:w<CR>", { silent = true })
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -356,7 +356,7 @@ local function live_grep_git_root()
   local git_root = find_git_root()
   if git_root then
     require('telescope.builtin').live_grep({
-      search_dirs = {git_root},
+      search_dirs = { git_root },
     })
   end
 end
