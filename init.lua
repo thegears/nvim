@@ -43,6 +43,10 @@ P.S. You can delete this when you're done too. It's your config now :)
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+local set = vim.opt -- set options
+set.tabstop = 4
+set.softtabstop = 4
+set.shiftwidth = 4
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
@@ -153,11 +157,13 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    'AstroNvim/astrotheme',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      require("astrotheme").setup{
+        palette= "astrodark",
+      }
+      vim.cmd.colorscheme 'astrodark'
     end,
   },
 
@@ -168,7 +174,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'astrodark',
         component_separators = '|',
         section_separators = '',
       },
