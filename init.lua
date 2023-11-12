@@ -1,3 +1,4 @@
+vim.o.guifont = "Source Code Pro:h7"
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 local set = vim.opt -- set options
