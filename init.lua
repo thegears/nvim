@@ -1,5 +1,3 @@
-vim.keymap.set('n', '<Tab>', ':bnext<cr>', { silent = true })
-
 vim.o.guifont = "Source Code Pro:h7"
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -156,7 +154,8 @@ vim.o.termguicolors = true
 
 -- MINE
 
-vim.keymap.set('n', '<C-s>', ":Format<CR>:w<CR>", { silent = true })
+vim.keymap.set('n', '<C-s>', "<Cmd>Format<cr><Cmd>w<cr>", { silent = true })
+vim.keymap.set('n', '<Tab>', '<Cmd>bnext<cr>', { silent = true })
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
