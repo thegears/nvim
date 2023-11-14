@@ -58,7 +58,6 @@ require('lazy').setup({
       vim.cmd.colorscheme 'astrotheme'
     end,
   },
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
