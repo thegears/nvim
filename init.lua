@@ -1,3 +1,5 @@
+vim.keymap.set('n', '<Tab>', ':bnext<cr>', { silent = true })
+
 vim.o.guifont = "Source Code Pro:h7"
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
